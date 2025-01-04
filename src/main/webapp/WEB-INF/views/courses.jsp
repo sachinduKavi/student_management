@@ -45,7 +45,7 @@
 					<td><%=c.getCourse_name() %></td>
 					<td><%=c.getCourse_code() %></td>
 					<td><%=c.getCredits() %></td>
-					<td><%=c.getDepartment_id() %></td>
+					<td><%=c.getDepartment().getDepartment_name() %></td>
 					<!-- Displaying department name -->
 					<td><a href="editCourse.html" class="btn btn-warning btn-sm">Edit</a>
 						<a href="deleteCourse.html" class="btn btn-danger btn-sm">Delete</a>

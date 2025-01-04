@@ -9,20 +9,25 @@ import javax.persistence.*;
 public class Course implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "course_id")
+	@Column(name = "course_id", nullable = false)
 	private int course_id;
 	
-	@Column(name = "course_name")
+	@Column(name = "course_name", nullable = false)
 	private String course_name;
 	
-	@Column(name = "course_code")
+	@Column(name = "course_code", nullable = false)
 	private String course_code;
 	
-	@Column(name = "credits")
+	@Column(name = "credits", nullable = false)
 	private int credits;
 	
-	@Column(name = "department_id")
+	@Column(name = "department_id", nullable = false, insertable = false, updatable = false)
 	private int department_id;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "department_id", referencedColumnName = "department_id")
+	private Department department;
 	
 	public Course() {}
 
@@ -66,6 +71,18 @@ public class Course implements Serializable{
 
 	public void setDepartment_id(int department_id) {
 		this.department_id = department_id;
+	}
+
+
+
+	public Department getDepartment() {
+		return department;
+	}
+
+
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 	
 	
