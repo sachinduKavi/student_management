@@ -4,8 +4,10 @@
 <head>
 
 <%
-	String message = "Hello";
-
+	String message = "";
+	if(request.getAttribute("auth") != null) {
+		message = "Incorrect Username or Password";
+	}
 	
 %>
 
